@@ -1,221 +1,210 @@
-/* Typography and base styling */
+/* ============================= */
+/* GLOBAL TYPOGRAPHY + LAYOUT    */
+/* ============================= */
+
 body {
-  font-family: 'Iowan Old Style', 'Palatino', 'Georgia', serif;
-  background-color: #f0ebe3;
-  color: #111;
-  margin: 0;
-  padding: 4rem 1.5rem;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #222;
+    background-color: #fff;
+    line-height: 1.6;
 }
 
-.container {
-  max-width: 650px;
-  margin: 0 auto;
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.2rem;
 }
 
-/* Name + icons on one row */
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+/* ============================= */
+/* HEADERS                       */
+/* ============================= */
+
+h1, h2, h3 {
+    font-weight: 600;
 }
 
-h1 {
-  font-size: 1.75rem;
-  font-weight: normal;
-  margin: 0;
+.section-title {
+    font-size: 1.8rem;
+    margin-top: 4rem;
+    margin-bottom: 1.4rem;
 }
 
-/* Divider */
-.divider {
-  border: none;
-  height: 1px;
-  background-color: #444;
-  margin: 0.5rem 0 1.5rem 0;
-}
+/* ============================= */
+/* LINKS                         */
+/* ============================= */
 
-/* Social icons */
-.social-icons {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.2rem;
-}
-
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  background-color: #111;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.social-icons a:hover {
-  background-color: #333;
-}
-
-/* About section */
-.about {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  font-weight: 400;
-  color: #333;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-}
-
-/* Link style */
 a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
-  transition: border-bottom-color 0.2s ease;
+    color: #0066cc;
+    text-decoration: none;
 }
+
 a:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
 }
 
-/* Filter bar */
-.filter-bar {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 0.5rem;
-  margin: 3rem 0 2rem 0;
-  padding-bottom: 0.5rem;
+/* ============================= */
+/* IMAGE + BIO HEADER            */
+/* ============================= */
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    margin-top: 3rem;
 }
 
-.filter-bar::-webkit-scrollbar {
-  display: none;
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.filter-button {
-  background: transparent;
-  border: 1px solid #111;
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.about-text {
+    max-width: 600px;
 }
 
-.filter-button:hover {
-  background-color: #eee;
-}
+/* ============================= */
+/* CARD GRID (projects/highlights) */
+/* ============================= */
 
-.filter-button.active {
-  background-color: #111;
-  color: #fff;
-}
-
-/* Papers */
-.paper-section {
-  margin-top: 3rem;
-}
-
-.paper-section h2 {
-  font-size: 1.25rem;
-  font-weight: normal;
-  margin-bottom: 1rem;
-  text-transform: lowercase;
-}
-
-.paper {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.paper a {
-  color: inherit;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
-  text-decoration: none;
-}
-.paper a:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-/* Grid layout */
 .card-grid {
-  max-width: 960px;
-  margin: 0 auto 4rem auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
+.card {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 1.2rem;
+    background: white;
+    transition: box-shadow 0.2s ease;
 }
 
-/* Clickable minimalist cards */
-.grid-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #111;
-  padding: 1rem;
-  transition: box-shadow 0.2s ease;
-  background-color: #fdf6e3;
+.card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-.grid-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
 }
 
-.grid-card h3 {
-  margin: 0 0 0.25rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  font-family: inherit;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.card-description {
+    color: #555;
+    margin-bottom: 0.8rem;
 }
 
-.grid-card .star {
-  font-size: 1rem;
-  color: #111;
+/* ============================= */
+/* PUBLICATIONS LIST             */
+/* ============================= */
+
+.paper-section {
+    margin-bottom: 1.5rem;
 }
 
-.grid-card .card-sub {
-  color: #999;
-  font-size: 0.9rem;
-  margin: 0 0 0.5rem;
+.paper-title {
+    font-weight: 600;
 }
 
-.grid-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+.paper-authors {
+    color: #555;
 }
 
-.avatar-name {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+.paper-venue {
+    color: #777;
+    font-size: 0.95rem;
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+/* ============================= */
+/* UNDERLINE TAB NAVIGATION      */
+/* ============================= */
+
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    position: relative;
+    font-size: 1.25rem;
 }
 
-.name-centered {
-  font-size: 1.75rem;
-  font-weight: normal;
-  margin: 0 auto;
-  text-align: center;
-  flex: 1;
+.tab-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.tab-link:hover {
+    color: #000;
+}
+
+.tab-link.active {
+    color: #000;
+    font-weight: 500;
+}
+
+/* Baseline bar */
+.tab-underline {
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    margin-top: 0.75rem;
+    position: relative;
+    --underline-left: 0px;
+}
+
+/* Moving underline */
+.tab-underline::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 60px;
+    background: #000;
+    bottom: 0;
+    left: var(--underline-left);
+    transition: left 0.25s ease;
+}
+
+/* ============================= */
+/* HIDE CONTENT UNTIL FILTERED   */
+/* ============================= */
+
+.content-section {
+    display: none; /* JS will toggle */
+}
+
+.content-section.card-grid {
+    display: grid;
+}
+
+.content-section.default-visible {
+    display: block;
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media (max-width: 600px) {
+    .about-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tab-nav {
+        gap: 1.4rem;
+        font-size: 1.05rem;
+        flex-wrap: wrap;
+    }
 }
