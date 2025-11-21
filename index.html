@@ -1,187 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <title>Astha Shah</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
   <style>
-  /* --------------------
-     Base / Typography
-     -------------------- */
-  :root {
+  :root{
     --bg: #f0ebe3;
     --text: #111;
     --muted: #666;
     --card: #fdf6e3;
   }
-
-  html,body { height: 100%; }
-  body {
-    font-family: 'Iowan Old Style','Palatino','Georgia',serif;
-    background: var(--bg);
-    color: var(--text);
-    margin: 0;
-    padding: 3.5rem 1.25rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .container { max-width: 920px; margin: 0 auto; }
-
-  /* --------------------
-     Top row (name + socials)
-     -------------------- */
-  .top-row {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap: 1rem;
-  }
-
-  .avatar-name {
-    display:flex;
-    align-items:center;
-    gap:1rem;
-  }
-
-  .avatar {
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    object-fit:cover;
-    flex-shrink:0;
-    border:1px solid rgba(0,0,0,0.06);
-  }
-
-  .name-centered {
-    font-size:1.5rem;
-    font-weight:500;
-    margin: 0;
-  }
-
-  .social-icons { display:flex; gap:0.5rem; }
-  .social-icons a {
-    display:inline-flex; align-items:center; justify-content:center;
-    width:34px; height:34px; border-radius:50%;
-    background:#111; color:#fff; text-decoration:none; font-size:14px;
-  }
-  .social-icons a:hover { background:#333; }
-
-  .divider {
-    border:none; height:1px; background:#444; margin:0.5rem 0 1.25rem;
-  }
-
-  /* --------------------
-     About header (larger avatar + bio)
-     -------------------- */
-  .about-header {
-    display:flex;
-    gap:1.25rem;
-    align-items:flex-start;
-    margin-top: 1.25rem;
-    margin-bottom: 1.75rem;
-    max-width:820px;
-  }
-
-  .profile-pic {
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid rgba(0,0,0,0.06);
-    flex-shrink:0;
-  }
-
-  .about-text h2 {
-    margin:0 0 0.5rem 0;
-    font-size:1.1rem;
-    font-weight:600;
-  }
-
-  .about {
-    font-size:1.05rem;
-    line-height:1.6;
-    color:#333;
+  html,body{height:100%}
+  body{
     margin:0;
+    padding:3.5rem 1.25rem;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Iowan Old Style','Palatino','Georgia',serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
 
-  /* Links */
-  a { color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.12); }
-  a:hover { border-bottom:1px solid rgba(0,0,0,0.18); }
+  .container{ max-width:920px; margin:0 auto; }
 
-  /* --------------------
-     Underline Tab Navigation
-     -------------------- */
-  .tabs-wrapper { max-width:960px; margin:0 auto; }
-  .tab-nav {
-    display:flex; justify-content:center; gap:2.4rem;
-    margin-top:1.75rem; position:relative; font-size:1.05rem; padding:0 0.5rem;
+  /* top row: small avatar + title + socials */
+  .top-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+  .avatar-name{ display:flex; align-items:center; gap:1rem; }
+  .avatar{
+    width:60px; height:60px; border-radius:50%; object-fit:cover;
+    border:1px solid rgba(0,0,0,0.06);
+    flex-shrink:0;
   }
-  .tab-link {
+  .name-centered{ font-size:1.75rem; margin:0; font-weight:400; }
+  .social-icons{ display:flex; gap:0.5rem; }
+  .social-icons a{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%; background:#111; color:#fff; text-decoration:none;
+    font-size:14px;
+  }
+  .social-icons a:hover{ background:#333; }
+
+  .divider{ border:none; height:1px; background:#444; margin:0.5rem 0 1.25rem; }
+
+  /* about paragraph (single, under the divider) */
+  .about{
+    font-size:1.1rem;
+    line-height:1.75;
+    color:#333;
+    max-width:700px;
+    margin:2rem 0;
+  }
+  a{ color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.12); }
+  a:hover{ border-bottom:1px solid rgba(0,0,0,0.18); }
+
+  /* Tab navigation underline */
+  .tabs-wrapper{ max-width:960px; margin:0 auto; }
+  .tab-nav{
+    display:flex; justify-content:center; gap:2.4rem; margin-top:2.25rem; position:relative; font-size:1.05rem;
+  }
+  .tab-link{
     background:none; border:none; padding:0; cursor:pointer;
     color:var(--muted); font-family:inherit; font-size:inherit;
-    transition: color 0.15s ease;
+    transition:color .15s ease;
   }
-  .tab-link:hover { color:var(--text); }
-  .tab-link.active { color:var(--text); font-weight:600; }
+  .tab-link:hover{ color:var(--text); }
+  .tab-link.active{ color:var(--text); font-weight:500; }
 
-  .tab-underline { width:100%; height:2px; background:#e6e0db; margin-top:0.6rem; position:relative; }
-  .tab-indicator {
-    position:absolute; bottom:0; left:0; height:3px; width:64px;
-    background:#111; transform:translateX(0); transition: transform 0.22s cubic-bezier(.2,.9,.2,1);
-    border-radius:2px;
-  }
+  .tab-underline{ width:100%; height:2px; background:#e6e0db; margin-top:0.6rem; position:relative; }
+  .tab-indicator{ position:absolute; bottom:0; left:0; height:3px; width:64px; background:#111; border-radius:2px; transition:transform .22s cubic-bezier(.2,.9,.2,1); }
 
-  /* --------------------
-     Papers / Cards / Grid
-     -------------------- */
-  .paper-section { margin-top:1.75rem; }
-  .paper { margin-bottom:1rem; line-height:1.55; }
-  .card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; max-width:960px; }
-  @media (max-width:900px) { .card-grid { grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:680px) { .card-grid { grid-template-columns:1fr; } }
+  /* content sections & grid */
+  .content-section{ display:none; }
+  .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; max-width:960px; }
+  @media (max-width:900px){ .card-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:680px){ .card-grid{ grid-template-columns:1fr; } }
 
-  .grid-card {
-    display:block; text-decoration:none; color:inherit; border:1px solid #111;
-    padding:1rem; background:var(--card); transition: box-shadow .18s ease;
-  }
-  .grid-card:hover { box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+  .grid-card{ border:1px solid #111; padding:1rem; background:var(--card); display:block; color:inherit; text-decoration:none; }
+  .grid-card:hover{ box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+  .grid-card h3{ margin:0 0 .35rem 0; font-size:1.05rem; }
+  .card-sub{ color:#999; font-size:.9rem; margin:0 0 .6rem 0; }
 
-  .grid-card h3 { margin:0 0 .35rem 0; font-size:1.05rem; }
-  .card-sub { color:#999; font-size:0.9rem; margin:0 0 .6rem 0; }
+  /* show highlights by default to avoid flash */
+  .content-section[data-tag="highlights"]{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 
-  /* --------------------
-     Content visibility (JS toggles)
-     -------------------- */
-  .content-section { display:none; }
-  /* By default, we show highlights in JS; keep this for no-flash */
-  .content-section[data-tag="highlights"] { display: grid; grid-template-columns: repeat(3,1fr); gap:1.5rem; }
-
-  /* --------------------
-     Responsive tweaks
-     -------------------- */
-  @media (max-width:680px) {
-    .top-row { flex-direction: column; align-items: center; gap:.75rem; text-align:center; }
-    .about-header { flex-direction:column; align-items:center; text-align:center; }
-    .profile-pic { width:110px; height:110px; }
-    .name-centered { font-size:1.25rem; }
-    .tab-nav { gap:1rem; font-size:0.98rem; }
-    .tab-indicator { width:48px; }
-    .content-section[data-tag="highlights"] { grid-template-columns: 1fr; }
+  @media (max-width:680px){
+    .top-row{ flex-direction:column; align-items:center; text-align:center; gap:.75rem; }
+    .avatar{ width:52px; height:52px; }
+    .name-centered{ font-size:1.5rem; }
+    .tab-nav{ gap:1rem; font-size: .98rem; }
+    .tab-indicator{ width:48px; }
+    .content-section[data-tag="highlights"]{ grid-template-columns:1fr; }
   }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Top row: small avatar + single page title + social icons -->
+
+    <!-- top row (small avatar + single H1 + socials) -->
     <div class="top-row">
       <div class="avatar-name">
-        <img src="/mnt/data/fb77017a-8c5f-4ca8-a0b5-229f41b5a240.png" alt="Astha avatar" class="avatar">
+        <!-- use your repo file (relative path) -->
+        <img src="avatar_pic.png" alt="Avatar of Astha" class="avatar">
         <h1 class="name-centered">Astha Shah</h1>
       </div>
 
@@ -195,20 +119,14 @@
 
     <hr class="divider">
 
-    <!-- About header: larger avatar + bio (no extra H1 here) -->
-    <div class="about-header" aria-labelledby="about-bio">
-      <img src="/mnt/data/fb77017a-8c5f-4ca8-a0b5-229f41b5a240.png" alt="Astha Shah" class="profile-pic">
-      <div class="about-text">
-        <h2 id="about-bio">About</h2>
-        <p class="about">
-          I study computer science at Tufts, and try to understand how humans and artificial systems learn at the
-          <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the
-          <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a> as a teaching assistant.
-        </p>
-      </div>
-    </div>
+    <!-- single about paragraph (keeps layout simple & consistent) -->
+    <p class="about">
+      I study computer science at Tufts, and try to understand how humans and artificial systems learn at the
+      <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the
+      <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a> as a teaching assistant.
+    </p>
 
-    <!-- Underline navigation -->
+    <!-- underline navigation -->
     <div class="tabs-wrapper" role="navigation" aria-label="Sections">
       <nav class="tab-nav" role="tablist" aria-label="Sections">
         <button class="tab-link active" data-tag="highlights" role="tab" aria-selected="true">highlights</button>
@@ -219,10 +137,7 @@
         <button class="tab-link" data-tag="other" role="tab">other</button>
         <button class="tab-link" data-tag="all" role="tab">all</button>
       </nav>
-
-      <div class="tab-underline" aria-hidden="true">
-        <div class="tab-indicator" aria-hidden="true"></div>
-      </div>
+      <div class="tab-underline" aria-hidden="true"><div class="tab-indicator" aria-hidden="true"></div></div>
     </div>
 
     <!-- Papers Section -->
@@ -245,7 +160,7 @@
       </div>
     </div>
 
-    <!-- 3-Column Project Cards -->
+    <!-- Projects -->
     <div class="card-grid content-section" data-tag="projects" style="display:none;">
       <a href="ethical-ai.html" class="grid-card">
         <h3>Designing an Ethical AI Teaching Assistant</h3>
@@ -254,9 +169,8 @@
       </a>
     </div>
 
-    <!-- Highlights placeholder (visible by default) -->
+    <!-- Highlights (default visible) -->
     <div class="card-grid content-section" data-tag="highlights">
-      <!-- Example highlight card -->
       <div class="grid-card">
         <h3>Selected highlight</h3>
         <p class="card-sub">2024</p>
@@ -266,56 +180,50 @@
 
   </div> <!-- /container -->
 
-  <!-- Toggle / underline JS -->
   <script>
-  (function() {
+  (function(){
     const tabs = Array.from(document.querySelectorAll('.tab-link'));
     const sections = Array.from(document.querySelectorAll('.content-section'));
     const indicator = document.querySelector('.tab-indicator');
     const nav = document.querySelector('.tab-nav');
-
-    // indicator width (fixed) and helper
     const INDICATOR_WIDTH = indicator ? indicator.offsetWidth || 64 : 64;
 
-    function setIndicatorToTab(tab, animate = true) {
-      const tabRect = tab.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-      const tabCenter = tabRect.left - navRect.left + (tabRect.width / 2);
-      const translateX = tabCenter - (INDICATOR_WIDTH / 2);
-      if (!animate) indicator.style.transition = 'none';
-      indicator.style.transform = `translateX(${translateX}px)`;
-      if (!animate) { void indicator.offsetWidth; indicator.style.transition = ''; }
+    function setIndicatorToTab(tab, animate=true){
+      const tRect = tab.getBoundingClientRect();
+      const nRect = nav.getBoundingClientRect();
+      const center = tRect.left - nRect.left + (tRect.width/2);
+      const x = center - (INDICATOR_WIDTH/2);
+      if(!animate) indicator.style.transition = 'none';
+      indicator.style.transform = `translateX(${x}px)`;
+      if(!animate){ void indicator.offsetWidth; indicator.style.transition=''; }
     }
 
-    function showSectionForTag(tag) {
-      sections.forEach(section => {
+    function showSectionForTag(tag){
+      sections.forEach(section=>{
         const isPaper = section.classList.contains('paper-section');
-        const match = tag === 'all' ? !isPaper : section.dataset.tag === tag;
+        const match = tag==='all' ? !isPaper : section.dataset.tag===tag;
         section.style.display = match ? (section.classList.contains('card-grid') ? 'grid' : 'block') : 'none';
       });
     }
 
-    // attach handlers
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        tabs.forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
         tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        setIndicatorToTab(tab, true);
+        setIndicatorToTab(tab,true);
         showSectionForTag(tab.dataset.tag);
       });
     });
 
-    // init
-    window.addEventListener('load', () => {
+    window.addEventListener('load', ()=>{
       const active = document.querySelector('.tab-link.active') || tabs[0];
-      setIndicatorToTab(active, false);
+      setIndicatorToTab(active,false);
       showSectionForTag(active.dataset.tag);
     });
 
-    // reposition on resize
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', ()=>{
       const active = document.querySelector('.tab-link.active') || tabs[0];
-      setIndicatorToTab(active, false);
+      setIndicatorToTab(active,false);
     });
   })();
   </script>
