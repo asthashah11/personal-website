@@ -1,225 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Astha Shah</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-  :root{
-    --bg: #f0ebe3;
-    --text: #111;
-    --muted: #666;
-    --card: #fdf6e3;
-  }
-  html,body{height:100%}
-  body{
-    margin:0;
-    padding:3.5rem 1.25rem;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Iowan Old Style','Palatino','Georgia',serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-
-  .container{ max-width:920px; margin:0 auto; }
-
-  /* top row: small avatar + title + socials */
-  .top-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-  .avatar-name{ display:flex; align-items:center; gap:1rem; }
-  .avatar{
-    width:60px; height:60px; border-radius:50%; object-fit:cover;
-    border:1px solid rgba(0,0,0,0.06);
-    flex-shrink:0;
-  }
-  .name-centered{ font-size:1.75rem; margin:0; font-weight:400; }
-  .social-icons{ display:flex; gap:0.5rem; }
-  .social-icons a{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:34px; height:34px; border-radius:50%; background:#111; color:#fff; text-decoration:none;
-    font-size:14px;
-  }
-  .social-icons a:hover{ background:#333; }
-
-  .divider{ border:none; height:1px; background:#444; margin:0.5rem 0 1.25rem; }
-
-  /* about paragraph (single, under the divider) */
-  .about{
-    font-size:1.1rem;
-    line-height:1.75;
-    color:#333;
-    max-width:700px;
-    margin:2rem 0;
-  }
-  a{ color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.12); }
-  a:hover{ border-bottom:1px solid rgba(0,0,0,0.18); }
-
-  /* Tab navigation underline */
-  .tabs-wrapper{ max-width:960px; margin:0 auto; }
-  .tab-nav{
-    display:flex; justify-content:center; gap:2.4rem; margin-top:2.25rem; position:relative; font-size:1.05rem;
-  }
-  .tab-link{
-    background:none; border:none; padding:0; cursor:pointer;
-    color:var(--muted); font-family:inherit; font-size:inherit;
-    transition:color .15s ease;
-  }
-  .tab-link:hover{ color:var(--text); }
-  .tab-link.active{ color:var(--text); font-weight:500; }
-
-  .tab-underline{ width:100%; height:2px; background:#e6e0db; margin-top:0.6rem; position:relative; }
-  .tab-indicator{ position:absolute; bottom:0; left:0; height:3px; width:64px; background:#111; border-radius:2px; transition:transform .22s cubic-bezier(.2,.9,.2,1); }
-
-  /* content sections & grid */
-  .content-section{ display:none; }
-  .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; max-width:960px; }
-  @media (max-width:900px){ .card-grid{ grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:680px){ .card-grid{ grid-template-columns:1fr; } }
-
-  .grid-card{ border:1px solid #111; padding:1rem; background:var(--card); display:block; color:inherit; text-decoration:none; }
-  .grid-card:hover{ box-shadow:0 6px 18px rgba(0,0,0,0.06); }
-  .grid-card h3{ margin:0 0 .35rem 0; font-size:1.05rem; }
-  .card-sub{ color:#999; font-size:.9rem; margin:0 0 .6rem 0; }
-
-  /* show highlights by default to avoid flash */
-  .content-section[data-tag="highlights"]{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-
-  @media (max-width:680px){
-    .top-row{ flex-direction:column; align-items:center; text-align:center; gap:.75rem; }
-    .avatar{ width:52px; height:52px; }
-    .name-centered{ font-size:1.5rem; }
-    .tab-nav{ gap:1rem; font-size: .98rem; }
-    .tab-indicator{ width:48px; }
-    .content-section[data-tag="highlights"]{ grid-template-columns:1fr; }
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
 
-    <!-- top row (small avatar + single H1 + socials) -->
-    <div class="top-row">
-        <h1 class="name-centered">Astha Shah</h1>
+  <!-- TOP BAR -->
+  <header class="top-row">
+    <h1 class="name-centered">Astha Shah</h1>
 
-      <div class="social-icons" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/asthashah8338/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/asthashah11" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://scholar.google.com/citations?hl=en&user=n4q77cYAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-        <a href="mailto:astha.shah@tufts.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
+      <a href="https://github.com" target="_blank" aria-label="GitHub">github</a>
+      <a href="#" aria-label="Scholar">🎓</a>
+      <a href="mailto:your@email.com" aria-label="Email">✉️</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT SECTION WITH AVATAR -->
+    <div class="about-header">
+      <img src="avatar_pic.png" alt="Astha Shah" class="profile-pic">
+
+      <div class="about-text">
+        <p class="about">
+          I study computer science at Tufts, and try to understand how humans and artificial
+          systems learn at the
+          <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>.
+          Additionally, I support the
+          <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a>
+          as a teaching assistant.
+        </p>
       </div>
     </div>
 
+    <!-- NAV TABS -->
+    <nav class="tabs">
+      <a href="#" class="tab">highlights</a>
+      <a href="#" class="tab">papers</a>
+      <a href="#" class="tab active">projects</a>
+      <a href="#" class="tab">thoughts</a>
+      <a href="#" class="tab">education</a>
+      <a href="#" class="tab">other</a>
+      <a href="#" class="tab">all</a>
+    </nav>
+
+    <!-- HORIZONTAL DIVIDER -->
     <hr class="divider">
 
-    <!-- single about paragraph (keeps layout simple & consistent) -->
-      I study computer science at Tufts, and try to understand how humans and artificial systems learn at the
-      <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the
-      <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a> as a teaching assistant.
+    <!-- PROJECTS GRID -->
+    <section class="projects-grid">
 
-    <!-- underline navigation -->
-    <div class="tabs-wrapper" role="navigation" aria-label="Sections">
-      <nav class="tab-nav" role="tablist" aria-label="Sections">
-        <button class="tab-link active" data-tag="highlights" role="tab" aria-selected="true">highlights</button>
-        <button class="tab-link" data-tag="papers" role="tab">papers</button>
-        <button class="tab-link" data-tag="projects" role="tab">projects</button>
-        <button class="tab-link" data-tag="thoughts" role="tab">thoughts</button>
-        <button class="tab-link" data-tag="education" role="tab">education</button>
-        <button class="tab-link" data-tag="other" role="tab">other</button>
-        <button class="tab-link" data-tag="all" role="tab">all</button>
-      </nav>
-      <div class="tab-underline" aria-hidden="true"><div class="tab-indicator" aria-hidden="true"></div></div>
-    </div>
-
-    <!-- Papers Section -->
-    <div class="paper-section content-section" data-tag="papers" style="display:none;">
-      <div class="paper">
-        <p>
-          <strong><a href="https://arxiv.org/abs/2503.15638" target="_blank">
-            Using machine learning to measure evidence of students' sensemaking in physics courses</a></strong><br>
-          Kaitlin Gili, Kyle Heuton, <strong>Astha Shah</strong>, Michael C. Hughes<br>
-          <em>arXiv preprint, 2024</em>
+      <div class="project-card">
+        <h2>Designing an Ethical AI Teaching Assistant</h2>
+        <p class="project-date">Aug 2023</p>
+        <p class="project-description">
+          Prototyping an AI TA that nudges students rather than answers directly.
         </p>
       </div>
-      <div class="paper">
-        <p>
-          <strong><a href="https://ieeexplore.ieee.org/document/10937634" target="_blank">
-            Limited Data X-ray Computerized Tomography</a></strong><br>
-          <strong>Astha Shah</strong>, Bayan Tuffaha<br>
-          <em>IEEE MIT URTC, 2024</em>
-        </p>
-      </div>
-    </div>
 
-    <!-- Projects -->
-    <div class="card-grid content-section" data-tag="projects" style="display:none;">
-      <a href="ethical-ai.html" class="grid-card">
-        <h3>Designing an Ethical AI Teaching Assistant</h3>
-        <p class="card-sub">Aug 2023</p>
-        <p>Prototyping an AI TA that nudges students rather than answers directly.</p>
-      </a>
-    </div>
+    </section>
+  </main>
 
-    <!-- Highlights (default visible) -->
-    <div class="card-grid content-section" data-tag="highlights">
-      <div class="grid-card">
-        <h3>Selected highlight</h3>
-        <p class="card-sub">2024</p>
-        <p class="card-description">Highlight summary goes here — replace with your real content.</p>
-      </div>
-    </div>
-
-  </div> <!-- /container -->
-
-  <script>
-  (function(){
-    const tabs = Array.from(document.querySelectorAll('.tab-link'));
-    const sections = Array.from(document.querySelectorAll('.content-section'));
-    const indicator = document.querySelector('.tab-indicator');
-    const nav = document.querySelector('.tab-nav');
-    const INDICATOR_WIDTH = indicator ? indicator.offsetWidth || 64 : 64;
-
-    function setIndicatorToTab(tab, animate=true){
-      const tRect = tab.getBoundingClientRect();
-      const nRect = nav.getBoundingClientRect();
-      const center = tRect.left - nRect.left + (tRect.width/2);
-      const x = center - (INDICATOR_WIDTH/2);
-      if(!animate) indicator.style.transition = 'none';
-      indicator.style.transform = `translateX(${x}px)`;
-      if(!animate){ void indicator.offsetWidth; indicator.style.transition=''; }
-    }
-
-    function showSectionForTag(tag){
-      sections.forEach(section=>{
-        const isPaper = section.classList.contains('paper-section');
-        const match = tag==='all' ? !isPaper : section.dataset.tag===tag;
-        section.style.display = match ? (section.classList.contains('card-grid') ? 'grid' : 'block') : 'none';
-      });
-    }
-
-    tabs.forEach(tab=>{
-      tab.addEventListener('click', ()=>{
-        tabs.forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        setIndicatorToTab(tab,true);
-        showSectionForTag(tab.dataset.tag);
-      });
-    });
-
-    window.addEventListener('load', ()=>{
-      const active = document.querySelector('.tab-link.active') || tabs[0];
-      setIndicatorToTab(active,false);
-      showSectionForTag(active.dataset.tag);
-    });
-
-    window.addEventListener('resize', ()=>{
-      const active = document.querySelector('.tab-link.active') || tabs[0];
-      setIndicatorToTab(active,false);
-    });
-  })();
-  </script>
 </body>
 </html>
