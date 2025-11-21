@@ -3,44 +3,307 @@
 <head>
   <meta charset="UTF-8">
   <title>Astha Shah</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  /* Typography and base styling */
+  body {
+    font-family: 'Iowan Old Style', 'Palatino', 'Georgia', serif;
+    background-color: #f0ebe3;
+    color: #111;
+    margin: 0;
+    padding: 4rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* Name + icons on one row */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    height: 1px;
+    background-color: #444;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+
+  /* Social icons */
+  .social-icons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+  }
+
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #111;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .social-icons a:hover {
+    background-color: #333;
+  }
+
+  /* About section */
+  .about {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    font-weight: 400;
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+
+  /* Link style */
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+    transition: border-bottom-color 0.2s ease;
+  }
+  a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  /* --- Underline Tab Navigation --- */
+  .tabs-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    position: relative;
+    font-size: 1.15rem;
+    padding: 0 1rem;
+  }
+
+  .tab-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    color: #666;
+    text-transform: none;
+    letter-spacing: 0;
+    transition: color 0.15s ease;
+  }
+
+  .tab-link:focus {
+    outline: 2px solid rgba(0,0,0,0.08);
+    outline-offset: 4px;
+  }
+
+  .tab-link:hover {
+    color: #000;
+  }
+
+  .tab-link.active {
+    color: #000;
+    font-weight: 500;
+  }
+
+  /* underline bar (light line) */
+  .tab-underline {
+    width: 100%;
+    height: 2px;
+    background: #e6e0db;
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  /* moving indicator */
+  .tab-indicator {
+    position: absolute;
+    bottom: -0px;
+    left: 0;
+    height: 3px;
+    width: 64px;         /* indicator length */
+    background: #111;
+    transform: translateX(0);
+    transition: transform 0.22s cubic-bezier(.2,.9,.2,1), width 0.22s ease;
+    border-radius: 2px;
+  }
+
+  /* Papers */
+  .paper-section {
+    margin-top: 3rem;
+  }
+
+  .paper-section h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+  }
+
+  .paper {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .paper a {
+    color: inherit;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+  }
+  .paper a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  /* Grid layout */
+  .card-grid {
+    max-width: 960px;
+    margin: 0 auto 4rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 680px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Clickable minimalist cards */
+  .grid-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #111;
+    padding: 1rem;
+    transition: box-shadow 0.2s ease;
+    background-color: #fdf6e3;
+  }
+
+  .grid-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .grid-card h3 {
+    margin: 0 0 0.25rem;
+    font-weight: bold;
+    font-size: 1.05rem;
+    font-family: inherit;
+  }
+
+  .grid-card .card-sub {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .grid-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .avatar-name {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .name-centered {
+    font-size: 1.75rem;
+    font-weight: normal;
+    margin: 0 auto;
+    text-align: center;
+    flex: 1;
+  }
+
+  /* small screens: reduce gap for tabs */
+  @media (max-width: 520px) {
+    .tab-nav { gap: 1.25rem; font-size: 1rem; }
+    .tab-indicator { width: 48px; }
+  }
+
+  </style>
 </head>
 <body>
 
-    <!-- Main header -->
-    <div class="container">
-      <div class="top-row">
-    <div class="avatar-name">
-      <img src="avatar.png" alt="Avatar of Astha" class="avatar">
-      <h1 class="name-centered">Astha Shah</h1>
-    </div>
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/in/asthashah8338/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/asthashah11" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://scholar.google.com/citations?hl=en&user=n4q77cYAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-        <a href="mailto:astha.shah@tufts.edu"><i class="fas fa-envelope"></i></a>
+  <div class="container">
+    <div class="top-row">
+      <div class="avatar-name">
+        <!-- Use uploaded avatar path from the workspace -->
+        <img src="/mnt/data/fb77017a-8c5f-4ca8-a0b5-229f41b5a240.png" alt="Avatar of Astha" class="avatar">
+        <h1 class="name-centered">Astha Shah</h1>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/asthashah8338/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/asthashah11" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://scholar.google.com/citations?hl=en&user=n4q77cYAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="mailto:astha.shah@tufts.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
 
     <hr class="divider">
 
-
     <p class="about">
-      I study computer science at Tufts, and try to understand how humans and artificial systems learn at the 
-      <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the 
+      I study computer science at Tufts, and try to understand how humans and artificial systems learn at the
+      <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the
       <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a> as a teaching assistant.
     </p>
 
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-      <button class="filter-button active" data-tag="highlights">highlights</button>
-      <button class="filter-button" data-tag="papers">papers</button>
-      <button class="filter-button" data-tag="projects">projects</button>
-      <button class="filter-button" data-tag="thoughts">thoughts</button>
-      <button class="filter-button" data-tag="education">education</button>
-      <button class="filter-button" data-tag="other">other</button>
-      <button class="filter-button" data-tag="all">all</button>
+    <!-- NEW Underline Navigation -->
+    <div class="tabs-wrapper">
+      <nav class="tab-nav" role="tablist" aria-label="Sections">
+        <button class="tab-link active" data-tag="highlights" role="tab" aria-selected="true">highlights</button>
+        <button class="tab-link" data-tag="papers" role="tab">papers</button>
+        <button class="tab-link" data-tag="projects" role="tab">projects</button>
+        <button class="tab-link" data-tag="thoughts" role="tab">thoughts</button>
+        <button class="tab-link" data-tag="education" role="tab">education</button>
+        <button class="tab-link" data-tag="other" role="tab">other</button>
+        <button class="tab-link" data-tag="all" role="tab">all</button>
+      </nav>
+
+      <div class="tab-underline" aria-hidden="true">
+        <div class="tab-indicator"></div>
+      </div>
     </div>
 
     <!-- Papers Section -->
@@ -74,33 +337,76 @@
     <!-- Add more cards here -->
   </div>
 
-  <!-- Highlights placeholder -->
+  <!-- Highlights placeholder (visible by default) -->
   <div class="card-grid content-section" data-tag="highlights">
     <!-- highlight cards go here -->
   </div>
 
-  <!-- Toggle logic -->
+  <!-- Toggle / underline JS -->
   <script>
-    const filterButtons = document.querySelectorAll('.filter-button');
+  (function() {
+    const tabs = Array.from(document.querySelectorAll('.tab-link'));
     const sections = document.querySelectorAll('.content-section');
+    const indicator = document.querySelector('.tab-indicator');
+    const nav = document.querySelector('.tab-nav');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+    // Make sure indicator width matches design or adjust per-tab
+    const INDICATOR_WIDTH = parseInt(getComputedStyle(indicator).width, 10) || 64;
 
-        const tag = button.dataset.tag;
+    function setIndicatorToTab(tab, animate = true) {
+      const tabRect = tab.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      // center indicator under the tab
+      const tabCenter = tabRect.left - navRect.left + (tabRect.width / 2);
+      const translateX = tabCenter - (INDICATOR_WIDTH / 2);
 
-        sections.forEach(section => {
-          const isPaper = section.classList.contains('paper-section');
-          const match = tag === 'all'
-          ? !isPaper // don't show paper-section on "all"
+      if (!animate) indicator.style.transition = 'none';
+      indicator.style.transform = `translateX(${translateX}px)`;
+      // force reflow for transition reset
+      if (!animate) { void indicator.offsetWidth; indicator.style.transition = ''; }
+    }
+
+    // Show/hide sections according to tag
+    function showSectionForTag(tag) {
+      sections.forEach(section => {
+        const isPaper = section.classList.contains('paper-section');
+        const match = tag === 'all'
+          ? !isPaper   // keep paper-section out of "all" like before
           : section.dataset.tag === tag;
+        section.style.display = match ? (section.classList.contains('card-grid') ? 'grid' : 'block') : 'none';
+      });
+    }
 
-          section.style.display = match ? (section.classList.contains('card-grid') ? 'grid' : 'block') : 'none';
+    // Click handlers
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
         });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        // move indicator and show content
+        setIndicatorToTab(tab, true);
+        showSectionForTag(tab.dataset.tag);
       });
     });
+
+    // initialize on load
+    window.addEventListener('load', () => {
+      const active = document.querySelector('.tab-link.active') || tabs[0];
+      // if responsive layout changes size after load, recalc on resize
+      setIndicatorToTab(active, false);
+      showSectionForTag(active.dataset.tag);
+    });
+
+    // ensure indicator repositions on resize
+    window.addEventListener('resize', () => {
+      const active = document.querySelector('.tab-link.active') || tabs[0];
+      setIndicatorToTab(active, false);
+    });
+  })();
   </script>
 
 </body>
