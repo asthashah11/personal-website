@@ -1,13 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Astha Shah</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <h1>Hello, I'm Astha!</h1>
-    <p>Welcome to my website.</p>
+
+    <!-- Main header -->
+    <div class="container">
+      <div class="top-row">
+    <div class="avatar-name">
+      <img src="avatar.png" alt="Avatar of Astha" class="avatar">
+      <h1 class="name-centered">Astha Shah</h1>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/asthashah8338/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/asthashah11" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://scholar.google.com/citations?hl=en&user=n4q77cYAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+        <a href="mailto:astha.shah@tufts.edu"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+
+    <p class="about">
+      I study computer science at Tufts, and try to understand how humans and artificial systems learn at the 
+      <a href="https://www.michaelchughes.com/" target="_blank">Hughes Lab</a>. Additionally, I support the 
+      <a href="https://www.cs.tufts.edu/comp/15/index.html" target="_blank">data structures course</a> as a teaching assistant.
+    </p>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-button active" data-tag="highlights">highlights</button>
+      <button class="filter-button" data-tag="papers">papers</button>
+      <button class="filter-button" data-tag="projects">projects</button>
+      <button class="filter-button" data-tag="thoughts">thoughts</button>
+      <button class="filter-button" data-tag="education">education</button>
+      <button class="filter-button" data-tag="other">other</button>
+      <button class="filter-button" data-tag="all">all</button>
+    </div>
+
+    <!-- Papers Section -->
+    <div class="paper-section content-section" data-tag="papers" style="display: none;">
+      <div class="paper">
+        <p>
+          <strong><a href="https://arxiv.org/abs/2503.15638" target="_blank">
+            Using machine learning to measure evidence of students' sensemaking in physics courses</a></strong><br>
+          Kaitlin Gili, Kyle Heuton, <strong>Astha Shah</strong>, Michael C. Hughes<br>
+          <em>arXiv preprint, 2024</em>
+        </p>
+      </div>
+      <div class="paper">
+        <p>
+          <strong><a href="https://ieeexplore.ieee.org/document/10937634" target="_blank">
+            Limited Data X-ray Computerized Tomography</a></strong><br>
+          <strong>Astha Shah</strong>, Bayan Tuffaha<br>
+          <em>IEEE MIT URTC, 2024</em>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-Column Project Cards -->
+  <div class="card-grid content-section" data-tag="projects" style="display: none;">
+    <a href="ethical-ai.html" class="grid-card">
+      <h3>Designing an Ethical AI Teaching Assistant </h3>
+      <p class="card-sub">Aug 2023</p>
+      <p>Prototyping an AI TA that nudges students rather than answers directly.</p>
+    </a>
+    <!-- Add more cards here -->
+  </div>
+
+  <!-- Highlights placeholder -->
+  <div class="card-grid content-section" data-tag="highlights">
+    <!-- highlight cards go here -->
+  </div>
+
+  <!-- Toggle logic -->
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const sections = document.querySelectorAll('.content-section');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const tag = button.dataset.tag;
+
+        sections.forEach(section => {
+          const isPaper = section.classList.contains('paper-section');
+          const match = tag === 'all'
+          ? !isPaper // don't show paper-section on "all"
+          : section.dataset.tag === tag;
+
+          section.style.display = match ? (section.classList.contains('card-grid') ? 'grid' : 'block') : 'none';
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
